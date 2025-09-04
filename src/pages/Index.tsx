@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
+import Solutions from "@/components/Solutions";
+import About from "@/components/About";
+import Contact from "@/components/Contact";
 import LoginModal from "@/components/LoginModal";
 import { Button } from "@/components/ui/button";
 
@@ -14,6 +17,15 @@ const Index = () => {
       
       {/* Features Section */}
       <Features />
+      
+      {/* Solutions Section */}
+      <Solutions />
+      
+      {/* About Section */}
+      <About />
+      
+      {/* Contact Section */}
+      <Contact />
       
       {/* Quick Login Demo */}
       <section className="py-16 bg-gradient-subtle border-t">

@@ -36,11 +36,11 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="xl" className="group">
+              <Button variant="hero" size="xl" className="group" onClick={() => window.location.href = '#contact'}>
                 Start Free Trial
                 <TrendingUp className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="xl">
+              <Button variant="outline" size="xl" onClick={() => alert('Demo coming soon! Contact us for a personalized demo.')}>
                 Watch Demo
               </Button>
             </div>
