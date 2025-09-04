@@ -75,6 +75,8 @@ export interface Policy {
   type: 'health' | 'life' | 'car' | 'travel';
   premium: number;
   coverage_amount: number;
+  start_date: string;
+  end_date: string;
 }
 
 export interface Claim {
@@ -111,29 +113,29 @@ export const mockCustomers: Customer[] = [
 ];
 
 export const mockPolicies: Policy[] = [
-  { id: 1, policy_name: 'Health Secure Plus', type: 'health', premium: 12000, coverage_amount: 500000 },
-  { id: 2, policy_name: 'Life Protect Plan', type: 'life', premium: 15000, coverage_amount: 1000000 },
-  { id: 3, policy_name: 'Car Shield', type: 'car', premium: 8000, coverage_amount: 300000 },
-  { id: 4, policy_name: 'Travel Guard', type: 'travel', premium: 5000, coverage_amount: 200000 },
-  { id: 5, policy_name: 'Family Health Cover', type: 'health', premium: 18000, coverage_amount: 700000 },
-  { id: 6, policy_name: 'Senior Citizen Life', type: 'life', premium: 20000, coverage_amount: 1200000 },
-  { id: 7, policy_name: 'Motor Secure', type: 'car', premium: 9000, coverage_amount: 350000 },
-  { id: 8, policy_name: 'Global Travel Care', type: 'travel', premium: 6000, coverage_amount: 250000 },
-  { id: 9, policy_name: 'Medi Assist Plan', type: 'health', premium: 10000, coverage_amount: 400000 },
-  { id: 10, policy_name: 'Term Life Protect', type: 'life', premium: 17000, coverage_amount: 900000 },
+  { id: 1, policy_name: 'Health Secure Plus', type: 'health', premium: 12000, coverage_amount: 500000, start_date: '2025-01-01', end_date: '2025-12-31' },
+  { id: 2, policy_name: 'Life Protect Plan', type: 'life', premium: 15000, coverage_amount: 1000000, start_date: '2025-02-01', end_date: '2025-11-30' },
+  { id: 3, policy_name: 'Car Shield', type: 'car', premium: 8000, coverage_amount: 300000, start_date: '2025-03-01', end_date: '2025-10-31' },
+  { id: 4, policy_name: 'Travel Guard', type: 'travel', premium: 5000, coverage_amount: 200000, start_date: '2025-04-01', end_date: '2025-12-15' },
+  { id: 5, policy_name: 'Family Health Cover', type: 'health', premium: 18000, coverage_amount: 700000, start_date: '2025-05-01', end_date: '2025-11-30' },
+  { id: 6, policy_name: 'Senior Citizen Life', type: 'life', premium: 20000, coverage_amount: 1200000, start_date: '2025-06-01', end_date: '2025-12-31' },
+  { id: 7, policy_name: 'Motor Secure', type: 'car', premium: 9000, coverage_amount: 350000, start_date: '2025-07-01', end_date: '2025-10-31' },
+  { id: 8, policy_name: 'Global Travel Care', type: 'travel', premium: 6000, coverage_amount: 250000, start_date: '2025-08-01', end_date: '2025-12-20' },
+  { id: 9, policy_name: 'Medi Assist Plan', type: 'health', premium: 10000, coverage_amount: 400000, start_date: '2025-09-01', end_date: '2025-11-30' },
+  { id: 10, policy_name: 'Term Life Protect', type: 'life', premium: 17000, coverage_amount: 900000, start_date: '2025-10-01', end_date: '2025-12-31' },
 ];
 
 export const mockClaims: Claim[] = [
-  { id: 1, customer_id: 1, policy_id: 1, claim_amount: 50000, status: 'pending', customer_name: 'Jaivardhan Singh', policy_name: 'Health Secure Plus', submitted_date: '2024-01-15' },
-  { id: 2, customer_id: 2, policy_id: 2, claim_amount: 150000, status: 'approved', customer_name: 'Aryan Mehta', policy_name: 'Life Protect Plan', submitted_date: '2024-01-10' },
-  { id: 3, customer_id: 3, policy_id: 3, claim_amount: 20000, status: 'rejected', customer_name: 'Anant Kumar', policy_name: 'Car Shield', submitted_date: '2024-01-12' },
-  { id: 4, customer_id: 4, policy_id: 4, claim_amount: 10000, status: 'pending', customer_name: 'Mohammad Ali', policy_name: 'Travel Guard', submitted_date: '2024-01-18' },
-  { id: 5, customer_id: 5, policy_id: 5, claim_amount: 75000, status: 'approved', customer_name: 'Divyam Sharma', policy_name: 'Family Health Cover', submitted_date: '2024-01-08' },
-  { id: 6, customer_id: 6, policy_id: 6, claim_amount: 120000, status: 'pending', customer_name: 'Ronit Kapoor', policy_name: 'Senior Citizen Life', submitted_date: '2024-01-20' },
-  { id: 7, customer_id: 7, policy_id: 7, claim_amount: 18000, status: 'approved', customer_name: 'Soham Patil', policy_name: 'Motor Secure', submitted_date: '2024-01-14' },
-  { id: 8, customer_id: 8, policy_id: 8, claim_amount: 25000, status: 'pending', customer_name: 'Rajesh Gupta', policy_name: 'Global Travel Care', submitted_date: '2024-01-16' },
-  { id: 9, customer_id: 9, policy_id: 9, claim_amount: 50000, status: 'approved', customer_name: 'Daksh Garg', policy_name: 'Medi Assist Plan', submitted_date: '2024-01-11' },
-  { id: 10, customer_id: 10, policy_id: 10, claim_amount: 20000, status: 'pending', customer_name: 'Farhan Khan', policy_name: 'Term Life Protect', submitted_date: '2024-01-19' },
+  { id: 1, customer_id: 1, policy_id: 1, claim_amount: 50000, status: 'pending', customer_name: 'Jaivardhan Singh', policy_name: 'Health Secure Plus', submitted_date: '2025-01-15' },
+  { id: 2, customer_id: 2, policy_id: 2, claim_amount: 150000, status: 'approved', customer_name: 'Aryan Mehta', policy_name: 'Life Protect Plan', submitted_date: '2025-01-10' },
+  { id: 3, customer_id: 3, policy_id: 3, claim_amount: 20000, status: 'rejected', customer_name: 'Anant Kumar', policy_name: 'Car Shield', submitted_date: '2025-01-12' },
+  { id: 4, customer_id: 4, policy_id: 4, claim_amount: 10000, status: 'pending', customer_name: 'Mohammad Ali', policy_name: 'Travel Guard', submitted_date: '2025-01-18' },
+  { id: 5, customer_id: 5, policy_id: 5, claim_amount: 75000, status: 'approved', customer_name: 'Divyam Sharma', policy_name: 'Family Health Cover', submitted_date: '2025-01-08' },
+  { id: 6, customer_id: 6, policy_id: 6, claim_amount: 120000, status: 'pending', customer_name: 'Ronit Kapoor', policy_name: 'Senior Citizen Life', submitted_date: '2025-01-20' },
+  { id: 7, customer_id: 7, policy_id: 7, claim_amount: 18000, status: 'approved', customer_name: 'Soham Patil', policy_name: 'Motor Secure', submitted_date: '2025-01-14' },
+  { id: 8, customer_id: 8, policy_id: 8, claim_amount: 25000, status: 'pending', customer_name: 'Rajesh Gupta', policy_name: 'Global Travel Care', submitted_date: '2025-01-16' },
+  { id: 9, customer_id: 9, policy_id: 9, claim_amount: 50000, status: 'approved', customer_name: 'Daksh Garg', policy_name: 'Medi Assist Plan', submitted_date: '2025-01-11' },
+  { id: 10, customer_id: 10, policy_id: 10, claim_amount: 20000, status: 'pending', customer_name: 'Farhan Khan', policy_name: 'Term Life Protect', submitted_date: '2025-01-19' },
 ];
 
 // Analytics data

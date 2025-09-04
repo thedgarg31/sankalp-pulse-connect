@@ -155,7 +155,7 @@ export const ClaimModal = ({ open, onOpenChange, claim, onEdit, mode = 'view' }:
               </CardHeader>
               <CardContent>
                 <div className="text-lg font-semibold">
-                  {formatDate(claim.submitted_date || '2024-01-15')}
+                  {formatDate(claim.submitted_date || '2025-01-15')}
                 </div>
               </CardContent>
             </Card>

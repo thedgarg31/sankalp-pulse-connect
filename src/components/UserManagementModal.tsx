@@ -31,8 +31,8 @@ const extendedUsers = [
     ...user,
     email: `${user.username}@example.com`,
     phone: `+91 ${Math.floor(Math.random() * 9000000000) + 1000000000}`,
-    joinDate: '2024-01-15',
-    lastActive: '2024-01-20',
+    joinDate: '2025-01-15',
+    lastActive: '2025-01-20',
     status: 'active',
     department: user.role === 'admin' ? 'Management' : user.role === 'agent' ? 'Sales' : 'Operations',
     location: 'Mumbai, India'
@@ -43,8 +43,8 @@ const extendedUsers = [
     role: 'customer' as const,
     email: customer.email,
     phone: customer.phone,
-    joinDate: '2024-01-10',
-    lastActive: '2024-01-19',
+    joinDate: '2025-01-10',
+    lastActive: '2025-01-19',
     status: 'active',
     department: 'Customer',
     location: 'Delhi, India'
