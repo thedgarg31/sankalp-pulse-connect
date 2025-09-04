@@ -23,22 +23,62 @@ const Header = () => {
           </div>
           <div>
             <h1 className="text-xl font-bold text-foreground">Sankalp</h1>
-            <p className="text-xs text-muted-foreground">Insurance Management</p>
+            <p className="text-xs text-slate-600">Insurance Management</p>
           </div>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#features" className="text-foreground hover:text-primary transition-smooth">
+          <a 
+            href="#features" 
+            className="text-foreground hover:text-primary transition-smooth cursor-pointer"
+            onClick={(e) => {
+              e.preventDefault();
+              const featuresSection = document.getElementById('features');
+              if (featuresSection) {
+                featuresSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
             Features
           </a>
-          <a href="#solutions" className="text-foreground hover:text-primary transition-smooth">
+          <a 
+            href="#solutions" 
+            className="text-foreground hover:text-primary transition-smooth cursor-pointer"
+            onClick={(e) => {
+              e.preventDefault();
+              const solutionsSection = document.getElementById('solutions');
+              if (solutionsSection) {
+                solutionsSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
             Solutions
           </a>
-          <a href="#about" className="text-foreground hover:text-primary transition-smooth">
+          <a 
+            href="#about" 
+            className="text-foreground hover:text-primary transition-smooth cursor-pointer"
+            onClick={(e) => {
+              e.preventDefault();
+              const aboutSection = document.getElementById('about');
+              if (aboutSection) {
+                aboutSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
             About
           </a>
-          <a href="#contact" className="text-foreground hover:text-primary transition-smooth">
+          <a 
+            href="#contact" 
+            className="text-foreground hover:text-primary transition-smooth cursor-pointer"
+            onClick={(e) => {
+              e.preventDefault();
+              const contactSection = document.getElementById('contact');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
             Contact
           </a>
         </nav>
@@ -62,7 +102,14 @@ const Header = () => {
               Logout
             </Button>
           )}
-          <Button variant="hero" size="sm">
+          <Button 
+            variant="hero" 
+            size="sm"
+            onClick={() => {
+              const event = new CustomEvent('openLogin');
+              window.dispatchEvent(event);
+            }}
+          >
             Get Started
           </Button>
           
@@ -82,23 +129,76 @@ const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden border-t bg-card/95 backdrop-blur-sm">
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
-            <a href="#features" className="text-foreground hover:text-primary transition-smooth">
+            <a 
+              href="#features" 
+              className="text-foreground hover:text-primary transition-smooth cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsMenuOpen(false);
+                const featuresSection = document.getElementById('features');
+                if (featuresSection) {
+                  featuresSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               Features
             </a>
-            <a href="#solutions" className="text-foreground hover:text-primary transition-smooth">
+            <a 
+              href="#solutions" 
+              className="text-foreground hover:text-primary transition-smooth cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsMenuOpen(false);
+                const solutionsSection = document.getElementById('solutions');
+                if (solutionsSection) {
+                  solutionsSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               Solutions
             </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-smooth">
+            <a 
+              href="#about" 
+              className="text-foreground hover:text-primary transition-smooth cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsMenuOpen(false);
+                const aboutSection = document.getElementById('about');
+                if (aboutSection) {
+                  aboutSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               About
             </a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-smooth">
+            <a 
+              href="#contact" 
+              className="text-foreground hover:text-primary transition-smooth cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsMenuOpen(false);
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               Contact
             </a>
             <div className="flex gap-2 pt-2 border-t">
               <Button variant="ghost" size="sm" className="flex-1" onClick={() => setLoginOpen(true)}>
                 Login
               </Button>
-              <Button variant="hero" size="sm" className="flex-1">
+              <Button 
+                variant="hero" 
+                size="sm" 
+                className="flex-1"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  const event = new CustomEvent('openLogin');
+                  window.dispatchEvent(event);
+                }}
+              >
                 Get Started
               </Button>
             </div>

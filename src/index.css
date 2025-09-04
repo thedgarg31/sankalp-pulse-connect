@@ -35,7 +35,7 @@ All colors MUST be HSL.
 
     /* Neutral Professional */
     --muted: 210 40% 96%;
-    --muted-foreground: 100 116 139;
+    --muted-foreground: 71 85 105;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 248 250 252;
@@ -96,7 +96,7 @@ All colors MUST be HSL.
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted-foreground: 215 20.2% 75.1%;
 
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;

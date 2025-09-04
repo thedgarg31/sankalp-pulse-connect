@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "@/hooks/useAppStore";
 import { loginSuccess, type UserRole } from "@/store/authSlice";
+import { emailRoleMap } from "@/services/mockData";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -76,7 +78,19 @@ const LoginModal = ({ open, onOpenChange }: LoginModalProps) => {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedRole) return;
+    
     const role = selectedRole as UserRole;
+    const email = credentials.email.toLowerCase();
+    
+    // Check if email is mapped to a specific role
+    const mappedRole = emailRoleMap[email];
+    
+    if (mappedRole && mappedRole !== role) {
+      toast.error(`This email is registered as ${mappedRole}. Please select the correct role.`);
+      return;
+    }
+    
+    // For demo purposes, allow login with any email if not in the mapping
     dispatch(loginSuccess({ email: credentials.email, role }));
     const roleRoutes: Record<UserRole, string> = {
       customer: "/customer-dashboard",
@@ -86,6 +100,7 @@ const LoginModal = ({ open, onOpenChange }: LoginModalProps) => {
     };
     onOpenChange(false);
     navigate(roleRoutes[role]);
+    toast.success(`Welcome! Logged in as ${role}`);
   };
 
   const gradientMap = {

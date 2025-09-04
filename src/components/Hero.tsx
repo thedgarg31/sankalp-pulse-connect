@@ -36,12 +36,30 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="xl" className="group" onClick={() => window.location.href = '#contact'}>
-                Start Free Trial
+              <Button 
+                variant="hero" 
+                size="xl" 
+                className="group" 
+                onClick={() => {
+                  const event = new CustomEvent('openLogin');
+                  window.dispatchEvent(event);
+                }}
+              >
+                Get Your Insurance Quote
                 <TrendingUp className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="xl" onClick={() => alert('Demo coming soon! Contact us for a personalized demo.')}>
-                Watch Demo
+              <Button 
+                variant="outline" 
+                size="xl" 
+                onClick={() => {
+                  // Smooth scroll to solutions section
+                  const solutionsSection = document.getElementById('solutions');
+                  if (solutionsSection) {
+                    solutionsSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                View Our Plans
               </Button>
             </div>
 
@@ -49,15 +67,15 @@ const Hero = () => {
             <div className="grid grid-cols-3 gap-6 pt-8 border-t">
               <div className="text-center">
                 <div className="text-2xl font-bold text-primary">99.9%</div>
-                <div className="text-sm text-muted-foreground">Uptime</div>
+                <div className="text-sm text-slate-600">Uptime</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-secondary">24/7</div>
-                <div className="text-sm text-muted-foreground">Support</div>
+                <div className="text-sm text-slate-600">Support</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-accent">5M+</div>
-                <div className="text-sm text-muted-foreground">Claims Processed</div>
+                <div className="text-sm text-slate-600">Claims Processed</div>
               </div>
             </div>
           </div>

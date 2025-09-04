@@ -54,7 +54,7 @@ const About = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Building Trust Since 1999
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             For over two decades, Sankalp has been protecting families and businesses 
             with innovative insurance solutions and unwavering commitment to excellence.
           </p>
@@ -64,7 +64,7 @@ const About = () => {
           {/* Story */}
           <div className="space-y-6">
             <h3 className="text-2xl font-bold text-foreground">Our Story</h3>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-slate-600 leading-relaxed">
               <p>
                 Founded with a simple mission - to make insurance accessible, transparent, 
                 and truly protective - Sankalp began as a small family-owned agency with 
@@ -81,7 +81,11 @@ const About = () => {
                 not just coverage, but peace of mind.
               </p>
             </div>
-            <Button variant="hero" size="lg">
+            <Button 
+              variant="hero" 
+              size="lg"
+              onClick={() => window.location.href = '#contact'}
+            >
               <Clock className="h-5 w-5" />
               Our Timeline
             </Button>
@@ -97,7 +101,7 @@ const About = () => {
                     <Icon className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div className="text-2xl font-bold text-primary mb-1">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-sm text-slate-600">{stat.label}</div>
                 </Card>
               );
             })}
@@ -123,7 +127,7 @@ const About = () => {
                     <Icon className="h-6 w-6 text-white" />
                   </div>
                   <h4 className="font-semibold text-foreground mb-2">{value.title}</h4>
-                  <p className="text-sm text-muted-foreground">{value.description}</p>
+                  <p className="text-sm text-slate-600">{value.description}</p>
                 </Card>
               );
             })}
@@ -136,7 +140,12 @@ const About = () => {
           <p className="mb-6 opacity-90 max-w-2xl mx-auto">
             Experienced professionals dedicated to innovation, integrity, and your success.
           </p>
-          <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+            onClick={() => window.location.href = '#contact'}
+          >
             View Leadership
           </Button>
         </div>

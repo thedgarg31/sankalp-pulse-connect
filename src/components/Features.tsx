@@ -81,7 +81,7 @@ const Features = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Everything You Need for Modern Insurance Management
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             From AI-powered insights to real-time processing, our comprehensive platform 
             handles every aspect of insurance operations with precision and efficiency.
           </p>
@@ -111,7 +111,7 @@ const Features = () => {
                     <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-smooth">
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-slate-600 leading-relaxed">
                       {feature.description}
                     </p>
                   </div>

@@ -81,7 +81,7 @@ const Contact = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             We're Here to Help
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Have questions about our services? Need a custom quote? Our expert team 
             is ready to assist you with all your insurance needs.
           </p>
@@ -102,7 +102,7 @@ const Contact = () => {
                     <div className="space-y-1">
                       <h4 className="font-semibold text-foreground">{info.title}</h4>
                       {info.details.map((detail, idx) => (
-                        <p key={idx} className="text-sm text-muted-foreground">{detail}</p>
+                        <p key={idx} className="text-sm text-slate-600">{detail}</p>
                       ))}
                     </div>
                   </div>
@@ -116,7 +116,7 @@ const Contact = () => {
             <Card className="p-8 border-0 shadow-card">
               <div className="mb-6">
                 <h3 className="text-xl font-semibold text-foreground mb-2">Send us a Message</h3>
-                <p className="text-muted-foreground">Fill out the form below and we'll get back to you within 24 hours.</p>
+                <p className="text-slate-600">Fill out the form below and we'll get back to you within 24 hours.</p>
               </div>
 
               {isSubmitted ? (
@@ -125,7 +125,7 @@ const Contact = () => {
                     <CheckCircle className="h-8 w-8 text-white" />
                   </div>
                   <h4 className="text-lg font-semibold text-foreground mb-2">Message Sent Successfully!</h4>
-                  <p className="text-muted-foreground">Thank you for contacting us. We'll respond within 24 hours.</p>
+                  <p className="text-slate-600">Thank you for contacting us. We'll respond within 24 hours.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -201,11 +201,23 @@ const Contact = () => {
         <div className="mt-16 text-center">
           <h3 className="text-lg font-semibold text-foreground mb-6">Need Immediate Assistance?</h3>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="success" size="lg">
+            <Button 
+              variant="success" 
+              size="lg"
+              onClick={() => window.open('tel:+9118007265257')}
+            >
               <Phone className="h-5 w-5" />
               Call Now: 1800-SANKALP
             </Button>
-            <Button variant="outline" size="lg">
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={() => {
+                // Open chat modal
+                const event = new CustomEvent('openChat');
+                window.dispatchEvent(event);
+              }}
+            >
               <MessageSquare className="h-5 w-5" />
               Start Live Chat
             </Button>
