@@ -1,9 +1,17 @@
 import { Shield, Menu, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import LoginModal from "@/components/LoginModal";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "@/hooks/useAppStore";
+import { logout } from "@/store/authSlice";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const user = useAppSelector((s) => s.auth.user);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-card/80 backdrop-blur-sm shadow-card">
@@ -37,10 +45,23 @@ const Header = () => {
 
         {/* Actions */}
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="sm" className="hidden md:inline-flex">
-            <User className="h-4 w-4" />
-            Login
-          </Button>
+          {!user ? (
+            <Button variant="ghost" size="sm" className="hidden md:inline-flex" onClick={() => setLoginOpen(true)}>
+              <User className="h-4 w-4" />
+              Login
+            </Button>
+          ) : (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                dispatch(logout());
+                navigate("/");
+              }}
+            >
+              Logout
+            </Button>
+          )}
           <Button variant="hero" size="sm">
             Get Started
           </Button>
@@ -74,7 +95,7 @@ const Header = () => {
               Contact
             </a>
             <div className="flex gap-2 pt-2 border-t">
-              <Button variant="ghost" size="sm" className="flex-1">
+              <Button variant="ghost" size="sm" className="flex-1" onClick={() => setLoginOpen(true)}>
                 Login
               </Button>
               <Button variant="hero" size="sm" className="flex-1">
@@ -84,6 +105,7 @@ const Header = () => {
           </nav>
         </div>
       )}
+      <LoginModal open={loginOpen} onOpenChange={setLoginOpen} />
     </header>
   );
 };

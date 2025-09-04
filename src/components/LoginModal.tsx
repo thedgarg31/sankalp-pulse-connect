@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "@/hooks/useAppStore";
+import { loginSuccess, type UserRole } from "@/store/authSlice";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -63,6 +66,8 @@ const LoginModal = ({ open, onOpenChange }: LoginModalProps) => {
     email: "",
     password: ""
   });
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleRoleSelect = (roleId: string) => {
     setSelectedRole(roleId);
@@ -70,8 +75,17 @@ const LoginModal = ({ open, onOpenChange }: LoginModalProps) => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Login logic here
-    console.log("Login attempt:", { ...credentials, role: selectedRole });
+    if (!selectedRole) return;
+    const role = selectedRole as UserRole;
+    dispatch(loginSuccess({ email: credentials.email, role }));
+    const roleRoutes: Record<UserRole, string> = {
+      customer: "/customer-dashboard",
+      employee: "/employee-dashboard",
+      agent: "/broker-dashboard",
+      admin: "/admin-dashboard"
+    };
+    onOpenChange(false);
+    navigate(roleRoutes[role]);
   };
 
   const gradientMap = {
